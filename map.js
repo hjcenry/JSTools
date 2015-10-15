@@ -1,11 +1,10 @@
 /**
- * create by hejincheng
+ * @author 何金成 该Map只做了简单的实现
  */
 var Map = function() {
 	var keys = new Array();
 	var values = new Array();
-	var MAX_SIZE = 2000;
-	
+
 	function getIndex(key) {
 		for ( var i in keys) {
 			if (keys[i] == key) {
@@ -34,7 +33,7 @@ var Map = function() {
 			if (isKeyExist(key)) {
 				return;
 			}
-			if(key == null){
+			if (key == null) {
 				return;
 			}
 			keys.push(key);
@@ -65,14 +64,21 @@ var Map = function() {
 	}
 }
 
-function testMap(){
+function testMap() {
 	var m = new Map();
 	m.put(1, 1);
 	m.put(2, "two");
+	m.put(2, "three");
 	m.put(3, 3.0);
-	m.put(4, {id:4});
-//	m.remove(2);
+	m.put(4, {
+		id : 4
+	});
+	m.put(5, "5");
+	m.put(6, 6.123);
+	m.remove(5);
+	console.log("key:" + 1 + "===>value:" + m.get(1));
 	console.log(m.toString());
+	console.log("map size:" + m.size());
 }
 
 testMap();
